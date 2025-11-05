@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  border-top: dashed black 2px;
+  border-bottom: dashed black 2px;
+  color: antiquewhite;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+nav {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul {
+  display: flex;
+  gap: 10%;
+  margin-right: 50px;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
