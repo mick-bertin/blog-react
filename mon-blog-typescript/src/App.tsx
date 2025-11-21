@@ -10,6 +10,7 @@ import NotFoundPage from "./pages/NotFoundPage ";
 import Create from "./pages/Create";
 import { Toaster } from "sonner";
 
+
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
+        <Route path="/create" element={<Create />} />
         <Route path="/articles" element={<ArticleList />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/create" element={<Create />} />

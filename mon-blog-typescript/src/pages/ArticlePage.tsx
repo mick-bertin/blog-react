@@ -52,7 +52,7 @@ function ArticlePage() {
             <p>{article.isLiked}</p>
           </figcaption>
         </figure>
-        <Link to={`/articles/${id}/edit`}>modifier</Link>
+        <Link to={`/articles/edit${id}`}>modifier</Link>
       </>
     );
   }
