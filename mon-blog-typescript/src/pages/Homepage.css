@@ -1,0 +1,12 @@
+.mon-fond-react {
+  /* Si le fichier CSS est dans le même dossier que le composant,
+     le chemin sera probablement le même. */
+  background: url("../assets/img/boule.jpg");
+
+  /* Assurez-vous que le conteneur a une taille */
+  width: auto;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  background-attachment: fixed;
+}

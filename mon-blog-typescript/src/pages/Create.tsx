@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 interface Article {
-  id: number;
+  id?: number;
   title: string;
   image: string;
   content: string;
@@ -16,9 +16,9 @@ function Create() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [newArticle, setNewArticle] = useState({
-    title: "",
+    title: "the fox",
     content: "",
-    image: "",
+    image: "/1316886-un-renard-illustration.jpeg",
     createdAt: "",
     isPublished: false,
     likeCount: 0,
@@ -100,85 +100,146 @@ function Create() {
       <div className="text-center mt-30">cree ton nouvel article</div>
 
       {error && <div className="text-red-500 mt-2 text-center">{error}</div>}
+      <main className="flex items-center py-10">
+        <form className="w-full max-w-lg m-auto">
+          {/* Titre + Contenu */}
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Titre
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                type="text"
+                placeholder="Titre"
+                value={newArticle.title}
+                onChange={(e) =>
+                  setNewArticle({ ...newArticle, title: e.target.value })
+                }
+              />
+            </div>
 
-      <main className="flex items-center h-96">
-        <form className="flex flex-col gap-2 w-90 m-auto">
-          <input
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
-            type="text"
-            name="titre"
-            placeholder="titre"
-            value={newArticle.title}
-            onChange={(e) =>
-              setNewArticle({ ...newArticle, title: e.target.value })
-            }
-          />
-          <input
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
-            type="text"
-            placeholder="contenu"
-            value={newArticle.content}
-            onChange={(e) =>
-              setNewArticle({ ...newArticle, content: e.target.value })
-            }
-          />
+            <div className="w-full md:w-1/2 px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Contenu
+              </label>
+              <textarea
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                placeholder="Contenu"
+                value={newArticle.content}
+                onChange={(e) =>
+                  setNewArticle({ ...newArticle, content: e.target.value })
+                }
+              />
+            </div>
+          </div>
 
-          <input
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
-            type="file"
-            accept=".jpg, .jpeg, .png"
-            placeholder="image"
-            // Retire l'attribut value ici !
-            onChange={handleImageChange} // Utilisez le nouveau gestionnaire
-          />
+          {/* Image */}
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Image
+              </label>
+              <input
+                placeholder="image"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                type="file"
+                accept=".jpg, .jpeg, .png"
+                onChange={handleImageChange}
+              />
+            </div>
+          </div>
 
-          <input
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
-            type="text"
-            placeholder="categorie"
-            value={newArticle.categoryName}
-            onChange={(e) =>
-              setNewArticle({ ...newArticle, categoryName: e.target.value })
-            }
-          />
-          <input
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
-            type="date"
-            placeholder="createdA"
-            value={newArticle.createdAt}
-            onChange={(e) =>
-              setNewArticle({ ...newArticle, createdAt: e.target.value })
-            }
-          />
-          <label htmlFor="plublier">plublier</label>
-          <input
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
-            type="checkbox"
-            placeholder="plublier"
-            checked={newArticle.isPublished}
-            onChange={(e) =>
-              setNewArticle({ ...newArticle, isPublished: e.target.checked })
-            }
-          />
+          {/* Catégorie + Date + Checkbox */}
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Catégorie
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                type="text"
+                placeholder="Catégorie"
+                value={newArticle.categoryName}
+                onChange={(e) =>
+                  setNewArticle({
+                    ...newArticle,
+                    categoryName: e.target.value,
+                  })
+                }
+              />
+            </div>
 
-          <input
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
-            type="number"
-            placeholder="likeCount"
-            value={newArticle.likeCount}
-            onChange={(e) =>
-              setNewArticle({
-                ...newArticle,
-                likeCount: Number(e.target.value),
-              })
-            }
-          />
-          <button
-            type="button"
-            onClick={NewArticle}
-            className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer ">
-            Créer
-          </button>
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Date
+              </label>
+              <input
+                placeholder="date"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                type="date"
+                value={newArticle.createdAt}
+                onChange={(e) =>
+                  setNewArticle({
+                    ...newArticle,
+                    createdAt: e.target.value,
+                  })
+                }
+              />
+            </div>
+
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0 flex items-center gap-2">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Publier
+              </label>
+              <input
+                placeholder="checkbox"
+                className="h-5 w-5 cursor-pointer"
+                type="checkbox"
+                checked={newArticle.isPublished}
+                onChange={(e) =>
+                  setNewArticle({
+                    ...newArticle,
+                    isPublished: e.target.checked,
+                  })
+                }
+              />
+            </div>
+          </div>
+
+          {/* LikeCount */}
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                Likes
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                type="number"
+                placeholder="Nombre de likes"
+                value={newArticle.likeCount}
+                onChange={(e) =>
+                  setNewArticle({
+                    ...newArticle,
+                    likeCount: Number(e.target.value),
+                  })
+                }
+              />
+            </div>
+          </div>
+
+          {/* Bouton */}
+          <div className="flex justify-between">
+            <button className="bg-green-500 text-white py-3 px-8 rounded shadow hover:bg-green-600 transition">
+              <Link to="/articles"> ＜ retour</Link>
+            </button>
+            <button
+              type="button"
+              onClick={NewArticle}
+              className="bg-blue-500 text-white py-3 px-8 rounded shadow hover:bg-blue-600 transition">
+              Créer ＋
+            </button>
+          </div>
         </form>
       </main>
     </>

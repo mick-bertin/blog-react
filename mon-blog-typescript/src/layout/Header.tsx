@@ -1,16 +1,15 @@
-// import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
-import vite from "../../public/vite.svg";
+import vite from "../assets/img/imagesMimi.webp";
 function Header() {
   // --- Template (JSX) ---
   return (
     <header>
       <nav className="w-full">
         {/* h-24 bg-gradient-to-r from-teal-400 to-blue-500 */}
-        <div className="flex justify-between items-center h-24 bg-linear-to-r from-lime-200 via-lime-500 to-green-600 pl-10 pr-10">
+        <div className="flex flex-wrap justify-between items-center h-24 bg-linear-to-r from-lime-200 via-lime-500 to-green-600 pl-10 pr-10">
           <div id="logo">
             <Link to="/">
-              <img src={vite} alt="vite" className="logos" />
+              <img src={vite} alt="vite" className=" rounded-4xl w-48 h-22" />
             </Link>
           </div>
           <div>
@@ -19,7 +18,7 @@ function Header() {
                 <NavLink
                   to="/"
                   className="transition ease-in duration-700 rounded-full py-2 px-4 ">
-                  Acceuil
+                  Accueil
                 </NavLink>
               </li>
               <li>
@@ -27,13 +26,6 @@ function Header() {
                   to="/articles"
                   className="transition ease-in duration700 rounded-full py-2 px-4 ">
                   Articles
-                </NavLink>
-              </li>{" "}
-              <li>
-                <NavLink
-                  to="/create"
-                  className="transition ease-in duration700 rounded-full py-2 px-4 ">
-                  Ajouter un Articles
                 </NavLink>
               </li>
               <li>
@@ -47,7 +39,6 @@ function Header() {
           </div>
         </div>
       </nav>
-     
     </header>
   );
 }

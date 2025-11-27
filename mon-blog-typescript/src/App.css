@@ -5,9 +5,9 @@
   margin: 0 auto;
   padding: 2rem;
 } */
-body {
+/* body {
   background-color: darkgray;
-}
+} */
 .active {
   background-color: rgba(229, 239, 45, 0.574);
   color: purple;

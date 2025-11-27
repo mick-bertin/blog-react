@@ -6,9 +6,9 @@ function BoutonLike() {
     setLik(!lik);
   }
   return (
-    <div>
-      <button onClick={like}>{lik ? "❤️ " : " 🤍 "}</button>
-      {/* 🤍 💛 */}
+    <div className="text-2xl">
+      <button onClick={like}>{lik ? "❤️ " : "  💛 "}</button>
+      {/* 🤍 🤍 */}
     </div>
   );
 }
