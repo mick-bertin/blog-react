@@ -106,14 +106,14 @@ function UpdateArticlePage() {
           onChange={(e) => setArticle({ ...article, title: e.target.value })}
         />
         <input
-          className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
+          className="border-4 border-amber-300 bg-sky-500 cursor-pointer"
           type="text"
           placeholder="contenu"
           value={article.content}
           onChange={(e) => setArticle({ ...article, content: e.target.value })}
         />
         <input
-          className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
+          className="border-4 border-amber-300 bg-sky-500 cursor-pointer"
           type="file"
           accept=".jpg, .jpeg, .png"
           placeholder="image"
@@ -121,7 +121,7 @@ function UpdateArticlePage() {
           onChange={handleImageChange} // Utilisez le nouveau gestionnaire
         />
         <input
-          className="border-4 border-amber-300 bg-sky-500/100 cursor-pointer"
+          className="border-4 border-amber-300 bg-sky-500 cursor-pointer"
           type="text"
           placeholder="categorie"
           value={article.categoryName}
@@ -135,8 +135,11 @@ function UpdateArticlePage() {
         </button>
         {error && <p>{error}</p>}
       </form>
-      <button type="button" title="Supprimer l'article" aria-label="Supprimer l'article">
-        <ArticleDelete/>
+      <button
+        type="button"
+        title="Supprimer l'article"
+        aria-label="Supprimer l'article">
+        <ArticleDelete />
       </button>
     </main>
   );

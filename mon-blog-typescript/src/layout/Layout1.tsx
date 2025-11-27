@@ -3,11 +3,11 @@ import Header from "./Header";
 
 function Layout1() {
   return (
-    <body>
+    <div>
       <Header />
 
       <Outlet />
-    </body>
+    </div>
   );
 }
 
