@@ -75,17 +75,17 @@ export default defineConfig([
 
 Pour reprendre les objectifs énoncés ce matin pour le blog :
 CRUD ou BREAD fonctionnel ✅
-Gestion des erreurs
+Gestion des erreurs✅
 Validation des données
 Sémantique HTML
-Accessibilité
+Accessibilité✅
 Responsive 
-SEO (title, balises meta...)
+SEO (title, balises meta...)✅
 page 404 ✅
 Messages erreurs / succès (notifications toast par exemple) ✅
 Architecture projet claire
-Composants réutilisables
+Composants réutilisables✅
 Code propre : indentation respectée, pas de console.log ni de commentaires inutiles ✅
-Code versionné sur github en public
+Code versionné sur github en public✅
 
 ```

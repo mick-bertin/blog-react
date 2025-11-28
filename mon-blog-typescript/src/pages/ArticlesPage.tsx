@@ -1,7 +1,7 @@
 function ArticlesPage() {
   return (
     <main>
-      <p>
+      <p className="text-sm text-emerald-600 sm:text-blue-600 md:text-blue-600 lg:text-amber-800 lg:text-2xl">
         Entre plaines sauvages et rivages préservés, certaines destinations
         semblent avoir été sculptées pour accueillir la vie animale dans toute
         sa splendeur. Qu’il s’agisse d’observer la danse silencieuse des

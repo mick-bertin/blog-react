@@ -36,15 +36,12 @@
       "id": "4"
     },
     {
-      "id": "5",
       "title": "Introduction à RxJS",
       "content": "RxJS facilite la gestion des données asynchrones...",
-      "createdAt": "2023-01-15",
-      "image": "https://placehold.co/150x150",
-      "likeCount": 65,
-      "isPublished": false,
       "categoryName": "JavaScript",
-      "isLiked": false
+      "image": "\\1316886-un-renard-illustration.jpeg",
+      "createdAt": "2023-01-15",
+      "id": "5"
     },
     {
       "id": "6",
